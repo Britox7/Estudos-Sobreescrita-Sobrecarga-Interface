@@ -2,29 +2,24 @@ import java.util.Scanner;
 
 public class Farmaceutico implements Operacoes{
 
-    private String rgConselhoFar;
     private String nome;
-    private String endereco;
-    private int cpf;
     Scanner scr = new Scanner(System.in);
 
-    public Farmaceutico(String nome, String endereco, int cpf, String rgConselhoFar){
+    public Farmaceutico(String nome){
 
-        this.rgConselhoFar = rgConselhoFar;
         this.nome = nome;
-        this.endereco = endereco;
-        this.cpf = cpf;
 
     }
 
-    public String getRgConselhoFar() {
-        return rgConselhoFar;
+    public String getNome() {
+        return nome;
     }
 
-    public void setRgConselhoFar(String rgConselhoFar) {
-        this.rgConselhoFar = rgConselhoFar;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
+    //Sobrescrita do Método vender
     @Override
     public void vender(Remedio remedio){
 
@@ -44,7 +39,7 @@ public class Farmaceutico implements Operacoes{
                 System.out.println("A venda não pode ser realizada, pois temos apenas " + remedio.getQntd() + " caixa(s) do medicamento");
                 quantidadeValida = false;
             } else {
-                System.out.println("Todas as " + qtdRemedio + " caixas do medicamento " + remedio.getNome() + " que o cliente " + nome +  ", custaram "
+                System.out.println("As " + qtdRemedio + " caixas do medicamento " + remedio.getNome() + " que o(a) cliente " + nome +  " comprou, custaram "
                         + valorFinal * qtdRemedio + "R$");
                 int qtdFinal = remedio.getQntd() - qtdRemedio;
                 quantidadeValida = true;
@@ -55,6 +50,7 @@ public class Farmaceutico implements Operacoes{
 
     }
 
+    //Sobrescrita do Método consultar
     @Override
     public void consultar(Remedio remedio){
 
@@ -66,6 +62,13 @@ public class Farmaceutico implements Operacoes{
             System.out.println("Mas estamos em promoção, então o seu valor agora sera de " + remedio.getValor() * 0.70 + "R$");
         }
 
+    }
+
+    //Sobrecarga do Método consultar
+    public void consultar(Remedio remedio, Farmaceutico farmaceutico){
+
+        System.out.println("Depois da venda realizada temos " + remedio.getQntd() + " " + remedio.getNome() + " em estoque, consulta " +
+                "realizada pelo Farmacêutico " + farmaceutico.getNome());
     }
 
 }

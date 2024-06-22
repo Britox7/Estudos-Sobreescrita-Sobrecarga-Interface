@@ -1,17 +1,14 @@
 import java.util.Scanner;
 
 public class Caixa implements Operacoes{
-    private String cltNum;
-    private String nome ;
-    private String endereco;
-    private int cpf ;
+
+    private String nome;
     Scanner scr = new Scanner(System.in);
 
-    public Caixa(String nome, String endereco, int cpf, String cltNum){
+    public Caixa(String nome){
+
         this.nome = nome;
-        this.cltNum = cltNum;
-        this.endereco = endereco;
-        this.cpf = cpf;
+
     }
 
     public String getNome() {
@@ -22,39 +19,7 @@ public class Caixa implements Operacoes{
         this.nome = nome;
     }
 
-    public Scanner getScr() {
-        return scr;
-    }
-
-    public void setScr(Scanner scr) {
-        this.scr = scr;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public int getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getCltNum() {
-        return cltNum;
-    }
-
-    public void setCltNum(String cltNum) {
-        this.cltNum = cltNum;
-    }
-
-
+    //Sobrescrita do Método vender
     @Override
     public void vender(Remedio remedio){
 
@@ -74,7 +39,7 @@ public class Caixa implements Operacoes{
                 System.out.println("A venda não pode ser realizada, pois temos apenas " + remedio.getQntd() + " caixa(s) do medicamento");
                 quantidadeValida = false;
             } else {
-                System.out.println("Todas as " + qtdRemedio + " caixas do medicamento " + remedio.getNome() + " que o cliente " + nome +  ", custaram "
+                System.out.println("As " + qtdRemedio + " caixas do medicamento " + remedio.getNome() + " que o(a) cliente " + nome + " comprou, custaram "
                         + valorFinal * qtdRemedio + "R$");
                 int qtdFinal = remedio.getQntd() - qtdRemedio;
                 quantidadeValida = true;
@@ -85,6 +50,7 @@ public class Caixa implements Operacoes{
 
     }
 
+    //Sobrescrita do Método consultar
     @Override
     public void consultar(Remedio remedio){
 
@@ -95,6 +61,14 @@ public class Caixa implements Operacoes{
                     "seu valor sem o desconto de 30% é de " + remedio.getValor() + "R$");
             System.out.println("Mas estamos em promoção, então o seu valor agora sera de " + remedio.getValor() * 0.70 + "R$");
         }
+
+    }
+
+    //Sobrecarga do Método consultar
+    public void consultar(Remedio remedio, Caixa caixa){
+
+        System.out.println("Depois da venda realizada temos " + remedio.getQntd() + " " + remedio.getNome() + " em estoque, consulta " +
+                "realizada pelo caixa " + caixa.getNome());
 
     }
 

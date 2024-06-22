@@ -1,12 +1,10 @@
 public class Remedio {
     private String nome;
-    private String dataVal;
     private Double valor;
     private int qntd;
 
-    public Remedio(String nome, String dataVal, Double valor, int qntd){
+    public Remedio(String nome, Double valor, int qntd){
         this.nome = nome;
-        this.dataVal = dataVal;
         this.valor = valor;
         this.qntd = qntd;
     }
@@ -17,14 +15,6 @@ public class Remedio {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getDataVal() {
-        return dataVal;
-    }
-
-    public void setDataVal(String dataVal) {
-        this.dataVal = dataVal;
     }
 
     public Double getValor() {
