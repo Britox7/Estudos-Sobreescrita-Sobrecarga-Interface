@@ -85,4 +85,4 @@
 
 ![image](https://github.com/Britox7/Estudos-Sobreescrita-Sobrecarga-Interface/assets/101662003/96d993b2-76ae-481b-a483-e8f6355fb8ae)
 
-<p>Link da postagem no linkedin: </p>
+<p>Link da postagem no linkedin: https://www.linkedin.com/feed/update/urn:li:activity:7210391479159058433/ </p>
